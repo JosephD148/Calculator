@@ -1,5 +1,6 @@
-import java.util.Scanner;
+
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Calc {
 
@@ -21,7 +22,7 @@ public class Calc {
     }
 
     public double avg() {
-        double total = sum(list);
+        double total = sum();
         double avg = total / list.size();
         return avg;
     }
@@ -29,13 +30,13 @@ public class Calc {
     public double stdev() {
         double average = avg();
         double variance = 0;
-        for (int i = 0; i<list.size() ; i++){
-            variance += (list.get(i) - average)*(list.get(i) - average);
+        for (int i = 0; i < list.size(); i++) {
+            variance += (list.get(i) - average) * (list.get(i) - average);
         }
         return Math.sqrt(variance / list.size());
     }
 
-    public double sum(ArrayList<Double> list) {
+    public double sum() {
         double sum = 0;
         for (double x : list) {
             sum += x;
@@ -44,13 +45,14 @@ public class Calc {
     }
 
     public double derivative(double x) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("h: ");
-        double h = scanner.nextDouble();
-        System.out.println("Evaluate function at x: ");
-        double result = ((x + h) * (x + h) - 4 - (x * x - 4)) / h;// type the function you want to evaluate here, currently it is f(x) = x^2 - 4
-        scanner.close();
-        return result;
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.println("h: ");
+            double h = scanner.nextDouble();
+            System.out.println("Evaluate function at x: ");
+            double result = ((x + h) * (x + h) - 4 - (x * x - 4)) / h;// type the function you want to evaluate here, currently it is f(x) = x^2 - 4
+            scanner.close();
+            return result;
 
+        }
     }
 }
