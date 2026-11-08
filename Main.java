@@ -5,9 +5,9 @@ public final class Main {
     public static void main(String[] args) {
 
         ArrayList<Double> list = new ArrayList<>();
-        list = getList();
-        Calc calculator =  new Calc(list);
-        System.out.println(calculator.avg());
+       // list = getList();
+        Calc calculator =  new Calc(1,2);
+        System.out.println(calculator.numOne);
 
     }
 

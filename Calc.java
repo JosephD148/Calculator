@@ -26,6 +26,15 @@ public class Calc {
         return avg;
     }
 
+    public double stdev() {
+        double average = avg();
+        double variance = 0;
+        for (int i = 0; i<list.size() ; i++){
+            variance += (list.get(i) - average)*(list.get(i) - average);
+        }
+        return Math.sqrt(variance / list.size());
+    }
+
     public double sum(ArrayList<Double> list) {
         double sum = 0;
         for (double x : list) {
